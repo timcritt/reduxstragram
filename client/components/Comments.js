@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Comments extends React.Component {
+const Comments = React.createClass({
   renderComment(comment, i) {
     return (
       <div className="comment" key={i}>
@@ -16,8 +16,8 @@ class Comments extends React.Component {
         </p>
       </div>
     )
-  }
-  handleSubmit (e) {
+  },
+  handleSubmit(e) {
     e.preventDefault();
     const { postId } = this.props.params;
     const author = this.refs.author.value;
@@ -25,7 +25,7 @@ class Comments extends React.Component {
     this.props.addComment(postId, author, comment)
     this.refs.commentForm.reset();
 
-  }
+  },
 
   render() {
     return (
@@ -42,6 +42,6 @@ class Comments extends React.Component {
       </div>
     )
   }
-};
+});
 
 export default Comments;
